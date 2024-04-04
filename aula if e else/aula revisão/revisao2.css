@@ -1,0 +1,36 @@
+
+input{
+    margin-bottom: name;
+    border-radius: 10px;
+    padding: 10px;
+    background-color:rgb(235, 235, 235);
+}
+
+#conte{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border-color: rgb(37, 167, 228);
+    border: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 400px;
+    width: 300px;
+    margin: auto;
+}
+#botao{
+    margin-bottom: 20px;
+    border-radius: 50px;
+    background-color: rgb(37, 167, 228);
+    color: aliceblue;
+    height: 40px;
+    width: 100px;
+}
+html{
+    background-color: rgb(184, 184, 184);
+}
+#h1{
+    color: rgb(44, 44, 44);
+}

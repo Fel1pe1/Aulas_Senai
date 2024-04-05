@@ -21,3 +21,4 @@ switch(teste){
     break;
 
 }
+alert(resu)

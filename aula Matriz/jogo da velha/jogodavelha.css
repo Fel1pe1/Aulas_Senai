@@ -1,4 +1,33 @@
+body{
+    background-color: rgb(56, 152, 241);
+    background-image: url('https://images2.alphacoders.com/133/1339621.png');
+}
+
 button{
     height: 100px;
-    width: 100px;  
+    width: 100px; 
+    line-height: 100PX;
+    font-size: 50px;
+    border-left: 0;
+    border-top: 0;
+    vertical-align: top;
+    color: blue;
+    background-color:rgb(56, 152, 241) ;
+}
+
+.btjogo2{
+    border-bottom: 0;
+}
+
+#bt02, #bt12, #bt22{
+    border-right: 0;
+}
+
+button:disabled{
+    border-color: rgb(0, 0, 0);
+}
+
+.image{
+    height: 100px;
+    width: 100px;
 }

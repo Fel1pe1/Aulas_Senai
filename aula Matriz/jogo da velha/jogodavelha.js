@@ -25,9 +25,9 @@ function marca(linha, coluna){
 
 function marcarCasa(nomeBotao){
     if (jogada % 2 ==0){
-        document.getElementById(nomeBotao).innerText = "O"
+        document.getElementById(nomeBotao).innerText = "□"
     }else{
-        document.getElementById(nomeBotao).innerText = "X"
+        document.getElementById(nomeBotao).innerText = "△"
     }
     document.getElementById(nomeBotao).disabled = true
     jogada++

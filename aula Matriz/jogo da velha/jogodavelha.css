@@ -5,6 +5,7 @@ body{
     color: bisque;
 }
 
+
 button{
     height: 100px;
     width: 100px; 
@@ -13,8 +14,8 @@ button{
     border-left: 0;
     border-top: 0;
     vertical-align: top;
-    color: blue;
-    background-color:rgb(56, 152, 241) ;
+    color:white;
+    background-color:transparent ;
     
 }
 
@@ -27,7 +28,7 @@ button{
 }
 
 button:disabled{
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(255, 249, 249);
 }
 
 .image{
@@ -35,6 +36,3 @@ button:disabled{
     width: 100px;
 }
 
-.botoes{
-
-}

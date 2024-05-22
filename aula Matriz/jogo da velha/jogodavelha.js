@@ -25,10 +25,52 @@ function marca(linha, coluna){
 
 function marcarCasa(nomeBotao){
     if (jogada % 2 ==0){
-        document.getElementById(nomeBotao).innerText = "□"
+        document.getElementById(nomeBotao).innerText = "🐯"
     }else{
-        document.getElementById(nomeBotao).innerText = "△"
+        document.getElementById(nomeBotao).innerText = "🐔"
     }
     document.getElementById(nomeBotao).disabled = true
     jogada++
+    if(jogada >= 5){
+        encerraJogo()
+    }
+}
+
+function encerraJogo(){
+    // colunas
+    if(document.getElementById("bt00").innerText == document.getElementById("bt01").innerText && document.getElementById("bt01").innerText == document.getElementById("bt02").innerText  && document.getElementById("bt00").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt00").innerText)
+    }
+    if(document.getElementById("bt10").innerText == document.getElementById("bt11").innerText && document.getElementById("bt11").innerText == document.getElementById("bt12").innerText  && document.getElementById("bt10").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt10").innerText)
+    }
+    if(document.getElementById("bt20").innerText == document.getElementById("bt21").innerText && document.getElementById("bt21").innerText == document.getElementById("bt22").innerText  && document.getElementById("bt20").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt20").innerText)
+    }
+
+    // horizonte
+    if(document.getElementById("bt00").innerText == document.getElementById("bt10").innerText && document.getElementById("bt10").innerText == document.getElementById("bt20").innerText  && document.getElementById("bt00").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt00").innerText)
+    }
+    if(document.getElementById("bt01").innerText == document.getElementById("bt11").innerText && document.getElementById("bt11").innerText == document.getElementById("bt21").innerText  && document.getElementById("bt01").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt01").innerText)
+    }
+    if(document.getElementById("bt02").innerText == document.getElementById("bt12").innerText && document.getElementById("bt12").innerText == document.getElementById("bt22").innerText  && document.getElementById("bt02").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt02").innerText)
+    }
+
+    // diagonal
+    if(document.getElementById("bt00").innerText == document.getElementById("bt11").innerText && document.getElementById("bt11").innerText == document.getElementById("bt22").innerText  && document.getElementById("bt00").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt00").innerText)
+    }
+    if(document.getElementById("bt02").innerText == document.getElementById("bt11").innerText && document.getElementById("bt11").innerText == document.getElementById("bt20").innerText  && document.getElementById("bt02").innerText != "" ){
+        alert("jogo finalizado \n Vencedor" + document.getElementById("bt02").innerText)
+    }
+   
+}
+
+
+function trocaFundo(url) {
+            document.body.style.backgroundImage = 'url(' + url + ')';
+            document.body.style.backgroundSize = 'cover';
 }

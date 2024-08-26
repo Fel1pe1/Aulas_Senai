@@ -40,7 +40,21 @@ const updateProduto = async (req,res) => {
     if (!produto || !dados) {
         res.status(404).send({error:'not found'})
     }
+    for(const dado in dados){
+        if(!(dado in produto)){
+            console.log('erro: este dado não existe')
+            continue;
+        }
+        produto[dado] = dados[dado]
+    }
+    fs.writeFile('./db.json', JSON.stringify(db), (err) => {
+        if (err){
+            res.status(500).send({error:'erro no servidor'})
+        }
+    })
+    res.status(204).send()
     // atualizar o produto
+    
 }
 const deleteProduto = async (req,res) => {
     const _id = req.params.id
@@ -50,5 +64,7 @@ const deleteProduto = async (req,res) => {
         )
     // deletar o produto
 }
+
+
 
 module.exports = {listProdutos, getProduto, createProduto, updateProduto, deleteProduto}

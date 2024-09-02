@@ -22,7 +22,7 @@ const createCliente = async (req,res) => {
         return res.status(406).send({error:'nome,email e senha devem ser informado'})
     }
     const _id = uuidv4()
-    const senhaCriptografada = await bcryptjs.hashSync(dados.senha, 10)
+    const senhaCriptografada = await bcrypt.hashSync(dados.senha, 10)
     dados.senha = senhaCriptografada
     dados.id = _id
     db.clientes.push(dados)

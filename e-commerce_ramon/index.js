@@ -8,7 +8,7 @@ const rotas_clientes = require("./rotas/rotas_clientes")
 app.use(bodyParser.json())
 
 app.use('/produtos', rotas_produtos)
-app.use('/cliente', rotas_clientes)
+app.use('/clientes', rotas_clientes)
 
 
 app.listen(3300)

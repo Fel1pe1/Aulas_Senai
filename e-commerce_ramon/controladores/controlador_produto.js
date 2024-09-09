@@ -13,7 +13,7 @@ const getProduto = async (req, res) => {
     const produto = lista_produtos.find(
         (produto) => produto.id == _id
         )
-    produto ? res.send(produto) : res.status(404).send({error:'not found'})
+   return produto ? res.status(200).send(produto) : res.status(404).send({error:'not found'})
 }
 const createProduto = async (req,res) => {
     const dados = req.body
@@ -28,7 +28,7 @@ const createProduto = async (req,res) => {
             res.status(500).send({error:'erro no servidor'})
         }
     })
-    res.status(204).send()
+    res.status(200).send("sucesso")
 }
 const updateProduto = async (req,res) => {
     const _id = req.params.id
@@ -52,8 +52,7 @@ const updateProduto = async (req,res) => {
             res.status(500).send({error:'erro no servidor'})
         }
     })
-    res.status(204).send()
-    // atualizar o produto
+    res.status(200).send("sucesso")
     
 }
 const deleteProduto = async (req,res) => {
@@ -70,7 +69,7 @@ const deleteProduto = async (req,res) => {
             res.status(500).send({error:'erro no servidor'})
         }
     })
-    res.status(204).send()
+    res.status(200).send("sucesso")
 }
 
 

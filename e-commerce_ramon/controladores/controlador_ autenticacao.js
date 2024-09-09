@@ -1,5 +1,6 @@
 const db = require('../db.json')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const login = async (req, res) => {
     try{
@@ -21,7 +22,21 @@ const login = async (req, res) => {
         res.send({error:'a senha não é valida'})
     }
 
-        res.send({message:'ok'})
+    const tpken = jwt.sing(
+        {
+            nome: cliente.nome,
+            email: cliente.email,
+            _id: cliente.id,
+
+        },
+        'jwt_secret_keys',
+        {expiresIn: 1000*60*60*24*365}
+
+        
+    )
+    console.log(token)
+
+        res.cookie("tokenAulaBE", token).send({message:'ok'})
     } catch (e) {
         console.log(e)
     } 

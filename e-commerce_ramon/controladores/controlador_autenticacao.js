@@ -1,19 +1,19 @@
 const db = require('../db.json')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const login = async (req, res) => {
     try{
-        const {email,senha} = req.body
+        const {email,senha} = req.body;
+        const lista_clientes = db.clientes
         if(!email || !senha){
             res.send({erro:'email ou senha não enviado'})
         }
-
         const cliente = lista_clientes.find(
             (cliente) => cliente?.email == email
             )
 
-    if(!cliente){
+        if(!cliente){
         res.status(404).send({error:'not found'})
     }
 
@@ -22,7 +22,7 @@ const login = async (req, res) => {
         res.send({error:'a senha não é valida'})
     }
 
-    const tpken = jwt.sing(
+    const token = jwt.sign(
         {
             nome: cliente.nome,
             email: cliente.email,
@@ -31,16 +31,18 @@ const login = async (req, res) => {
         },
         'jwt_secret_keys',
         {expiresIn: 1000*60*60*24*365}
+    
+        )
 
-        
-    )
-    console.log(token)
-
-        res.cookie("tokenAulaBE", token).send({message:'ok'})
+        res.cookie("TokenAulaBE", token).send({message:'ok'})
     } catch (e) {
         console.log(e)
     } 
 }
 
+const logout = async (req,res) => {
+    res.cookie("TokenAulaBE", "nome", expiresIn=5)
+    res.send({message:"logout feito"})
+}
 
-module.exports = {}
+module.exports = {login, logout}

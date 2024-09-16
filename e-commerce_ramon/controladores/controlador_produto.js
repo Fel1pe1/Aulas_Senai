@@ -1,9 +1,11 @@
 const db = require('../db.json')
 const { v4: uuidv4 } = require('uuid')
 const fs = require('fs')
+const cookieParser = require('cookie-parser')
 
 
 const listProdutos = async (req,res) => {
+    console.log(req.cookies)
     var produtos = db.produtos
     res.json(produtos)
 }
